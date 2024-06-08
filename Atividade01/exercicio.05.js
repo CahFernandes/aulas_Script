@@ -4,25 +4,29 @@
 
 const ler = require('readline-sync');
 
-let num1 = ler.questionInt("Informe um número: ");
-let num2 = ler.questionInt("Informe outro número: ");
-let num3 = ler.questionInt("Informe outro número: ");
+let num1 = ler.questionInt("Informe um numero: ");
+let num2 = ler.questionInt("Informe outro numero: ");
+let num3 = ler.questionInt("Informe outro numero: ");
 
 if(num1 > num2) {
     if(num1 > num3) {
         if(num2 > num3) {
-            console.log("Valores informados em ordem decrescente: " + num1 + num2 + num3);
+            console.log("Valores informados em ordem decrescente:", num1, num2, num3);
         } else {
-            console.log("Valores informados em ordem decrescente: " + num1 + num3 + num2);
+            console.log("Valores informados em ordem decrescente:", num1, num3, num2);
         }
     } else {
-        console.log("Valores informados em ordem decrescente: " + num3 + num1 + num2);
+        console.log("Valores informados em ordem decrescente:", num3, num1, num2);
     }
     
 } else {
     if(num1 > num3) {
-        console.log("Valores informados em ordem decrescente: " + num2 + num1 + num3);
+        console.log("Valores informados em ordem decrescente:", num2, num1, num3);
     } else {
-        console.log("Valores informados em ordem decrescente: " + num2 + num3 + num1);
+        if(num2 > num3) {
+            console.log("Valores informados em ordem decrescente:", num2, num3, num1);
+        } else {
+            console.log("Valores informados em ordem decrescente:", num3, num2, num1);
+        }
     }
 }
