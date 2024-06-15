@@ -4,19 +4,20 @@
 
 const ler = require('readline-sync');
 
-let i = 1;
+let i = 0;
 let soma, num, media,idade;
 soma  = 0;
 num   = 0;
 media = 0;
+idade = 0;
 
-do {
+while (idade >= 0) {
     soma += idade;
-    idade = ler.questionInt(`Digite a idade ${i} ou -1 para sair: `);
+    idade = ler.questionInt(`Digite a idade ${i} ou -1 para sair: `);   
 
     i++;
-} while (idade != -1);
+} 
 
-media = soma / i
+media = soma / (i -1);
 
-console.log("A média entre as idades informadas é " + media + ".");
+console.log("A média entre as idades informadas é " + media.toFixed(2) + ".");
