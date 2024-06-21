@@ -12,7 +12,7 @@ const ler = require('readline-sync');
 let numeros = [];
 let soma    = 0;
 
-for (let i = 0; i < 0; i++) {
+for (let i = 0; i < 9; i++) {
     let numero = ler.questionInt(`Informe o ${i} numero: `);
     numeros.push(numero);
 }
