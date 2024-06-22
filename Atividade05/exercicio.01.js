@@ -10,12 +10,23 @@
 
 const ler = require('readline-sync');
 
-let produtos = [{}];
+let produtos = [];
+let check    = true;
 
-for (let i = 0; i <= 3; i++) {
+while(check){
     let produto = ler.question(`Informe o produto: `);
     let qtde    = ler.questionInt(`Informe a quantidade do produto informado: `);
     produtos.push({produto: produto, qtde: qtde});
-}
 
+    let x = ler.question("Produto cadastrado! 'Enter' para cadastrar novo produto ou 'sair' para finalizar: ").toLowerCase();
+    if(x === 'sair') {
+        check = false;
+    }
+}
 console.table(produtos);
+
+let produtosFil = produtos.filter(qtd => qtd.qtde > 0); 
+console.table(produtosFil);
+
+let produtosAlfa = produtosFil.sort((a, b) => a.produto.localeCompare(b.produto));
+console.table(produtosAlfa);
