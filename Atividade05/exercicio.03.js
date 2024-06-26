@@ -29,34 +29,21 @@ let qtde = ler.questionInt("Informe a quantidade de livros a serem analisados: "
 livros_analis = livros.slice(0,qtde);
 console.table(livros_analis);
 
-// Ordena a matriz qtde_livros por categoria
-livros_analis.sort((a,b) => a.categoria.localeCompare(b.categoria));
-
-let qtde_livro = 0;
-let categ_ant  = "";
+// Busca a quantidade de livros em cada categoria informada
 for (let i = 0; i < livros_analis.length; i++) {
-    if(livros_analis[i]['categoria'] != categ_ant) {
-        qtde_livro = 1;        
-    } else {
-        qtde_livro++;        
-    }
+  if(livros_categ[livros_analis[i].categoria] == undefined)  
+     livros_categ[livros_analis[i].categoria] = {categoria: livros_analis[i].categoria, qtde: 0};
 
-    // busca o indice já existente
-    let pos = livros_categ.indexOf(livros_analis[i]['categoria']);
-    console.log(pos, categ_ant);
-    if(pos >= 0) {
-        livros_categ[[pos]['qtde_livro']] = qtde_livro;
-    } else {    
-        livros_categ.push({categoria: livros_analis[i]['categoria'], qtde_livro: qtde_livro});
-    }
-    categ_ant = livros_analis[i]['categoria'];
+  livros_categ[livros_analis[i].categoria].qtde++;
 }
 
+// Imprime a quantidade de livros de cada categoria
+livros_categ = Object.values(livros_categ);
 for (let index = 0; index < livros_categ.length; index++) {
-    if(livros_categ[index]['qtde_livro'] > 1) {
-        console.log(`Na categoria ${livros_categ[index]['categoria']}, possuem ${livros_categ[index]['qtde_livro']} livros cadastrados.`);    
+    if(livros_categ[index]['qtde'] > 1) {
+        console.log(`Na categoria ${livros_categ[index]['categoria']}, possuem ${livros_categ[index]['qtde']} livros cadastrados.`);    
     } else {
-        console.log(`Na categoria ${livros_categ[index]['categoria']}, possui ${livros_categ[index]['qtde_livro']} livros cadastrado.`);    
+        console.log(`Na categoria ${livros_categ[index]['categoria']}, possui ${livros_categ[index]['qtde']} livros cadastrado.`);    
     }    
 }
 
