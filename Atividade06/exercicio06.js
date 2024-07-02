@@ -7,15 +7,12 @@ let qtde1 = 0;
 let qtde2 = 0;
 let qtde3 = 0;
 
-let votacao = [
-    [{candidato: "Fulano"},[{nome:"Maria Eugenia"},{nome:"José Florisbelo"},{nome:"Carol Quitanda"}]],
-    [{candidato: "Ciclano"}, [{nome:"Joao Nogueira"},{nome:"Bruna do Surf"}]],
-    [{candidato: "Beltrano"}, [{nome:"Cibele Correia"},{nome:"Felipe Atos"},{nome:"Pedro Pedreira"},{nome:"Andre Vicente"}]]
-]            
+let votacao = {
+    "Fulano": [{nome:"Maria Eugenia"},{nome:"José Florisbelo"},{nome:"Carol Quitanda"}],
+    "Ciclano": [{nome:"Joao Nogueira"},{nome:"Bruna do Surf"}],
+    "Beltrano": [{nome:"Cibele Correia"},{nome:"Felipe Atos"},{nome:"Pedro Pedreira"},{nome:"Andre Vicente"}]
+}            
 
-votacao.forEach(dado => {
-    for (valor of dado) {
-        console.log(valor); 
-    }
-    
-});
+Object.entries(votacao).forEach((dado)=> {
+    console.log(dado[0], "- Votos: ",dado[1].length);
+  });
